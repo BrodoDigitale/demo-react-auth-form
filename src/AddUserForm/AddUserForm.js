@@ -4,17 +4,14 @@ import { Card } from "../UI/Card/Card";
 import { Button } from "../UI/Button/Button";
 
 export const AddUserForm = (props) => {
-  const [userData, setUserData] = useState(null);
+  const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredAge, setEnteredAge] = useState("");
 
   const addUserHandler = (evt) => {
     evt.preventDefault();
+    console.log(enteredUsername, enteredAge);
   };
-  const onChangeHandler = (input, value) => {
-    setUserData((prevState) => {
-      return { ...prevState, [input]: value };
-    });
-    console.log(userData);
-  };
+
   return (
     <Card extraClasses={classes.input}>
       <form onSubmit={addUserHandler}>
@@ -22,13 +19,13 @@ export const AddUserForm = (props) => {
         <input
           id="username"
           type="text"
-          onChange={(evt) => onChangeHandler("username", evt.target.value)}
+          onChange={(evt) => setEnteredUsername(evt.target.value)}
         />
         <label htmlFor="age">Age (Years)</label>
         <input
           id="age"
           type="number"
-          onChange={(evt) => onChangeHandler("age", evt.target.value)}
+          onChange={(evt) => setEnteredAge(evt.target.value)}
         />
         <Button type={"submit"}>Add user</Button>
       </form>
