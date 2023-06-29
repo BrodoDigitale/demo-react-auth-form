@@ -1,20 +1,20 @@
 import React from "react";
 import classes from "./UsersList.module.css";
+import { Card } from "../UI/Card/Card";
 
-export const UsersList = (props) => {
+export const UsersList = ({ users }) => {
   return (
-    <div className={classes.users}>
+    <Card extraClasses={classes.users}>
       <ul>
-        {props.users &&
-          props.users.map((user, index) => {
+        {users &&
+          users.map((user, index) => {
             return (
               <li key={index}>
-                <p>{user.name}</p>
-                <p>{user.age}</p>
+                {user.name} ({user.age} years old)
               </li>
             );
           })}
       </ul>
-    </div>
+    </Card>
   );
 };
