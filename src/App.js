@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AddUserForm } from "./AddUserForm/AddUserForm";
 import { ErrorModal } from "./ErrorModal/ErrorModal";
+import { UsersList } from "./UsersList/UsersList";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -26,6 +27,7 @@ function App() {
         addUserHandler={addUserHandler}
         errorHandler={invalidInputHandler}
       />
+      <UsersList users={users} />
       {showErrrorModal && <ErrorModal onClose={closeErrorModal} />}
     </div>
   );
