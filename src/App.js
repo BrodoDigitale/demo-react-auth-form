@@ -6,11 +6,9 @@ import { UsersList } from "./UsersList/UsersList";
 function App() {
   const [users, setUsers] = useState([]);
   const [showErrrorModal, setShowErrorModal] = useState(false);
-  //
 
   const addUserHandler = (newUser) => {
     setUsers((prevState) => [...prevState, newUser]);
-    console.log(users);
   };
 
   const invalidInputHandler = () => {
@@ -28,7 +26,13 @@ function App() {
         errorHandler={invalidInputHandler}
       />
       <UsersList users={users} />
-      {showErrrorModal && <ErrorModal onClose={closeErrorModal} />}
+      {showErrrorModal && (
+        <ErrorModal
+          onClose={closeErrorModal}
+          title={"Error"}
+          message={"Invalid input"}
+        />
+      )}
     </div>
   );
 }
