@@ -3,7 +3,7 @@ import classes from "./AddUserForm.module.css";
 import { Card } from "../UI/Card/Card";
 import { Button } from "../UI/Button/Button";
 
-export const AddUserForm = ({ addUserHandler }) => {
+export const AddUserForm = ({ addUserHandler, errorHandler }) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredUsernameIsValid, setEnteredUsernameIsValid] = useState(false);
   const [enteredAgeIsValid, setEnteredAgeIsValid] = useState(false);
@@ -14,7 +14,7 @@ export const AddUserForm = ({ addUserHandler }) => {
     if (enteredUsernameIsValid && enteredAgeIsValid) {
       addUserHandler({ name: enteredUsername, age: enteredAge });
     } else {
-      console.log("ERROR INPUT");
+      return errorHandler();
     }
     setEnteredUsername("");
     setEnteredAge("");
