@@ -9,7 +9,6 @@ const Backdrop = ({ onClose }) => {
 };
 
 const ModalBody = ({ onClose, title, message }) => {
-  console.log("backdrop");
   return (
     <Card extraClasses={classes.modal}>
       <header className={classes.header}>
