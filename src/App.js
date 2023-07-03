@@ -25,7 +25,7 @@ function App() {
         addUserHandler={addUserHandler}
         errorHandler={invalidInputHandler}
       />
-      <UsersList users={users} />
+      {users.length && <UsersList users={users} />}
       {showErrrorModal && (
         <ErrorModal
           onClose={closeErrorModal}
