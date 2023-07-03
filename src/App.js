@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <AddUserForm
         addUserHandler={addUserHandler}
         errorHandler={invalidInputHandler}
@@ -33,7 +33,7 @@ function App() {
           message={"Invalid input"}
         />
       )}
-    </div>
+    </>
   );
 }
 
