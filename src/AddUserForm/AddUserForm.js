@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import classes from "./AddUserForm.module.css";
 import { Card } from "../UI/Card/Card";
 import { Button } from "../UI/Button/Button";
 
 export const AddUserForm = ({ addUserHandler, errorHandler }) => {
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
+
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredUsernameIsValid, setEnteredUsernameIsValid] = useState(false);
   const [enteredAgeIsValid, setEnteredAgeIsValid] = useState(false);
@@ -49,6 +52,7 @@ export const AddUserForm = ({ addUserHandler, errorHandler }) => {
           type="text"
           value={enteredUsername}
           onChange={(evt) => nameInputHandler(evt)}
+          ref={nameInputRef}
         />
         <label htmlFor="age">Age (Years)</label>
         <input
@@ -56,6 +60,7 @@ export const AddUserForm = ({ addUserHandler, errorHandler }) => {
           type="number"
           value={enteredAge}
           onChange={(evt) => ageInputHandler(evt)}
+          ref={ageInputRef}
         />
         <Button type={"submit"}>Add user</Button>
       </form>
